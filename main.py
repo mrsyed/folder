@@ -1,5 +1,4 @@
-
-#Masud Syed
+# Masud Syed
 # Again
 from pathlib import Path
 import shutil
@@ -14,10 +13,14 @@ jpg_regex = re.compile(r"^web.*jpg$")
 dir = target_path / "web"
 
 
-def find_files(reg: Pattern[str])->list[str]:
+def this_does_nothing():
+    pass
+
+
+def find_files(reg: Pattern[str]) -> list[str]:
     matching_files = []
     for file_path in target_path.glob(
-        "*.jpg"
+            "*.jpg"
     ):  # rglob recursively finds all files and directories
         if file_path.is_file() and jpg_regex.match(file_path.name):
             matching_files.append(file_path)
@@ -32,10 +35,11 @@ def find_files(reg: Pattern[str])->list[str]:
 #     for _ in matching_files:
 #         shutil.move(_, dir)dir
 
-def delete_files(matching_files:list[str])->None:
+def delete_files(matching_files: list[str]) -> None:
     for _ in matching_files:
         if _.is_file():
             _.unlink()
+
 
 if __name__ == "__main__":
     files: list = find_files(jpg_regex)
