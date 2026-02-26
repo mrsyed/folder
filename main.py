@@ -24,12 +24,12 @@ def find_files(reg: Pattern[str])->list[str]:
     return matching_files
 
 
-def move_files(matching_files: list)->None:
-    if not dir.is_dir():
-        dir.mkdir(parents=True, exist_ok=True)
-    print(*matching_files)
-    for _ in matching_files:
-        shutil.move(_, dir)
+# def move_files(matching_files: list)->None:
+#     if not dir.is_dir():
+#         dir.mkdir(parents=True, exist_ok=True)
+#     print(*matching_files)
+#     for _ in matching_files:
+#         shutil.move(_, dir)dir
 
 def delete_files(matching_files:list[str])->None:
     for _ in matching_files:
